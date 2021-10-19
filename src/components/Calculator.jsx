@@ -4,7 +4,7 @@ import Menu from "./Menu";
 import Result from "./Result";
 
 const CalculatorWrapper = styled.div`
-  width: 1440px;
+  width: 700px;
   background-color: #fff;
   border-radius: 25px;
   padding: 30px;
