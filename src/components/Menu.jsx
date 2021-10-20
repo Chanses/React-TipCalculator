@@ -47,6 +47,9 @@ const MenuInput = styled.input`
   :focus {
     outline: 2px solid hsl(172, 67%, 45%);
   }
+  ::placeholder {
+    color: hsl(184, 14%, 56%);
+  }
   @media (max-width: 790px) {
     width: calc(100% - 60px);
     min-width: 220px;

@@ -38,6 +38,9 @@ const TipSelectorInput = styled.input`
   :focus {
     outline: 2px solid hsl(172, 67%, 45%);
   }
+  ::placeholder {
+    color: hsl(183, 100%, 15%);
+  }
 `;
 
 const TipSelector = () => {

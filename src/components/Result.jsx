@@ -34,7 +34,6 @@ const AmountWrapper = styled.div`
     font-weight: 500;
   }
 `;
-
 const ResetButton = styled.button`
   height: 50px;
   color: hsl(183, 100%, 15%);
@@ -48,6 +47,7 @@ const ResetButton = styled.button`
     cursor: pointer;
   }
 `;
+
 const Result = () => {
   return (
     <ResultWrapper>
