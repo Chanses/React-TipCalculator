@@ -8,22 +8,57 @@ const ResultWrapper = styled.div`
   border-radius: 25px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 `;
-const AmountWrapper = styled.div``;
-const ResetButton = styled.button``;
+const AmountWrapper = styled.div`
+  div {
+    color: hsl(172, 67%, 45%);
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  div p {
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+  }
+  div p span {
+    color: hsl(184, 14%, 56%);
+    font-size: 15px;
+    font-weight: 500;
+  }
+`;
+
+const ResetButton = styled.button`
+  height: 50px;
+  color: hsl(183, 100%, 15%);
+  font-size: 19px;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: hsl(172, 67%, 45%);
+  border: none;
+  :hover {
+    background-color: hsl(185, 41%, 84%);
+    cursor: pointer;
+  }
+`;
 const Result = () => {
   return (
     <ResultWrapper>
       <AmountWrapper>
         <div>
           <p>
-            Tip Amount <span>/ person </span>
+            Tip Amount <br />
+            <span>/ person </span>
           </p>
-          <div>0.00$</div>
+          <div>4.27$</div>
         </div>
         <div>
           <p>
-            Total <span>/ person </span>
+            Total <br />
+            <span>/ person </span>
           </p>
           <div>0.00$</div>
         </div>

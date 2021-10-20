@@ -10,6 +10,12 @@ const CalculatorWrapper = styled.div`
   padding: 30px;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 790px) {
+    width: 400px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Calculator = () => {
