@@ -13,7 +13,7 @@ const MenuWrapper = styled.div`
 
   input {
     margin-top: 10px;
-    width: 305px;
+    max-width: 400px;
     height: 30px;
     font-size: 19px;
     border-radius: 5px;
@@ -26,6 +26,8 @@ const MenuWrapper = styled.div`
     background-repeat: no-repeat;
     background-position-x: 10px;
     background-position-y: 7px;
+    color: hsl(183, 100%, 15%);
+    font-weight: 700;
   }
 
   input:focus {
@@ -40,6 +42,15 @@ const MenuWrapper = styled.div`
   }
   div:last-child {
     margin-bottom: 0px;
+  }
+  @media (max-width: 790px) {
+    width: 100%;
+    margin-bottom: 30px;
+    margin-right: 0px;
+    input {
+      width: calc(100% - 60px);
+      min-width: 220px;
+    }
   }
 `;
 

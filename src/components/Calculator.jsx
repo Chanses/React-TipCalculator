@@ -4,14 +4,15 @@ import Menu from "./Menu";
 import Result from "./Result";
 
 const CalculatorWrapper = styled.div`
-  width: 700px;
+  max-width: 700px;
   background-color: #fff;
   border-radius: 25px;
   padding: 30px;
   display: flex;
   justify-content: space-between;
   @media (max-width: 790px) {
-    width: 400px;
+    max-width: 400px;
+    min-width: 280px;
     flex-direction: column;
     justify-content: center;
     align-items: center;

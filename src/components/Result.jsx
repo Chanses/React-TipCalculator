@@ -9,6 +9,10 @@ const ResultWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 790px) {
+    width: calc(100% - 60px);
+    min-width: 220px;
+  }
 `;
 const AmountWrapper = styled.div`
   div {
