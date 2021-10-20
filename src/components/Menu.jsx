@@ -10,30 +10,6 @@ const MenuWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 60%;
-
-  input {
-    margin-top: 10px;
-    width: calc(100% - 60px);
-    max-width: 400px;
-    height: 30px;
-    font-size: 19px;
-    border-radius: 5px;
-    padding-right: 15px;
-    padding-left: 35px;
-    background-color: hsl(189, 41%, 95%);
-    border: none;
-    outline: none;
-    text-align: right;
-    background-repeat: no-repeat;
-    background-position-x: 10px;
-    background-position-y: 7px;
-    color: hsl(183, 100%, 15%);
-    font-weight: 700;
-  }
-
-  input:focus {
-    border: 2px solid hsl(172, 67%, 45%);
-  }
   div {
     margin-bottom: 40px;
   }
@@ -48,10 +24,32 @@ const MenuWrapper = styled.div`
     width: 100%;
     margin-bottom: 30px;
     margin-right: 0px;
-    input {
-      width: calc(100% - 60px);
-      min-width: 220px;
-    }
+  }
+`;
+const MenuInput = styled.input`
+  margin-top: 10px;
+  width: calc(100% - 60px);
+  max-width: 400px;
+  height: 30px;
+  font-size: 19px;
+  border-radius: 5px;
+  padding-right: 15px;
+  padding-left: 35px;
+  background-color: hsl(189, 41%, 95%);
+  border: none;
+  outline: none;
+  text-align: right;
+  background-repeat: no-repeat;
+  background-position-x: 10px;
+  background-position-y: 7px;
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  :focus {
+    outline: 2px solid hsl(172, 67%, 45%);
+  }
+  @media (max-width: 790px) {
+    width: calc(100% - 60px);
+    min-width: 220px;
   }
 `;
 
@@ -60,7 +58,7 @@ const Menu = () => {
     <MenuWrapper>
       <div>
         <p>Bill</p>
-        <input
+        <MenuInput
           type="text"
           placeholder="0"
           style={{ backgroundImage: `url(${dollarImg})` }}
@@ -70,7 +68,7 @@ const Menu = () => {
       <div>
         <p>Number of People</p>
 
-        <input
+        <MenuInput
           type="text"
           placeholder="0"
           style={{ backgroundImage: `url(${personImg})` }}
