@@ -13,6 +13,7 @@ const MenuWrapper = styled.div`
 
   input {
     margin-top: 10px;
+    width: calc(100% - 60px);
     max-width: 400px;
     height: 30px;
     font-size: 19px;
