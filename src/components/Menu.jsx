@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import TipSelector from "./TipSelector";
 import dollarImg from "../images/icon-dollar.svg";
@@ -57,6 +57,17 @@ const MenuInput = styled.input`
 `;
 
 const Menu = () => {
+  const [bill, setBill] = useState(0);
+  const billOnChange = (event) => {
+    setBill(event.currentTarget.value);
+    console.log(bill);
+  };
+  const [numberOfPeople, setNumberOfPeople] = useState(0);
+  const numberOfPeopleOnChange = (event) => {
+    setNumberOfPeople(event.currentTarget.value);
+    console.log(numberOfPeople);
+  };
+
   return (
     <MenuWrapper>
       <div>
@@ -65,6 +76,7 @@ const Menu = () => {
           type="text"
           placeholder="0"
           style={{ backgroundImage: `url(${dollarImg})` }}
+          onChange={billOnChange}
         />
       </div>
       <TipSelector />
@@ -75,6 +87,7 @@ const Menu = () => {
           type="text"
           placeholder="0"
           style={{ backgroundImage: `url(${personImg})` }}
+          onChange={numberOfPeopleOnChange}
         />
       </div>
     </MenuWrapper>

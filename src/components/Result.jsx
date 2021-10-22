@@ -57,7 +57,7 @@ const Result = () => {
             Tip Amount <br />
             <span>/ person </span>
           </p>
-          <div>4.27$</div>
+          <div>0.00$</div>
         </div>
         <div>
           <p>
