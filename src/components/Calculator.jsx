@@ -20,10 +20,16 @@ const CalculatorWrapper = styled.div`
 `;
 
 const Calculator = () => {
+  const state = {
+    bill: 0,
+    numberOfPeople: 0,
+    tip: 0,
+  };
+
   return (
     <CalculatorWrapper>
-      <Menu />
-      <Result />
+      <Menu state={state} />
+      <Result state={state} />
     </CalculatorWrapper>
   );
 };

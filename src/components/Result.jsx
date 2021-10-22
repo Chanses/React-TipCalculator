@@ -48,7 +48,15 @@ const ResetButton = styled.button`
   }
 `;
 
-const Result = () => {
+const Result = (props) => {
+  const bill = props.state.bill;
+  const tip = props.state.bill;
+  const numberOfPeople = props.state.numberOfPeople;
+
+  const getTipAmout = (bill / 100) * tip + "$";
+  const getTotal = getTipAmout * numberOfPeople;
+  console.log(props);
+
   return (
     <ResultWrapper>
       <AmountWrapper>
