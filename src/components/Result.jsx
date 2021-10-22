@@ -52,10 +52,13 @@ const Result = (props) => {
   const bill = props.state.bill;
   const tip = props.state.bill;
   const numberOfPeople = props.state.numberOfPeople;
-
+  const tipAmount = 0;
   const getTipAmout = (bill / 100) * tip + "$";
   const getTotal = getTipAmout * numberOfPeople;
-  console.log(props);
+  const tipAmountChange = (event) => {
+    tipAmount = event.currentTarget.value;
+    console.log(tipAmount);
+  };
 
   return (
     <ResultWrapper>
@@ -65,7 +68,9 @@ const Result = (props) => {
             Tip Amount <br />
             <span>/ person </span>
           </p>
-          <div>0.00$</div>
+          <div onChange={tipAmountChange} value={tipAmount}>
+            0.00$
+          </div>
         </div>
         <div>
           <p>
