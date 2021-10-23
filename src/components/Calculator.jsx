@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Menu from "./Menu";
 import Result from "./Result";
@@ -24,12 +24,19 @@ const Calculator = () => {
     bill: 0,
     numberOfPeople: 0,
     tip: 0,
+    tipAmount: 0,
   };
+  const [tipAmount, setTipAmount] = useState(0);
+  const [tipTotal, setTipTotal] = useState(0);
 
   return (
     <CalculatorWrapper>
-      <Menu state={state} />
-      <Result state={state} />
+      <Menu
+        state={state}
+        setTipAmount={setTipAmount}
+        setTipTotal={setTipTotal}
+      />
+      <Result state={state} tipAmount={tipAmount} tipTotal={tipTotal} />
     </CalculatorWrapper>
   );
 };

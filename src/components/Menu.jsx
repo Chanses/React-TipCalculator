@@ -57,18 +57,26 @@ const MenuInput = styled.input`
 `;
 
 const Menu = (props) => {
-  const [bill, setBill] = useState(0);
+  const [bill, setBill] = useState("");
+  const [numberOfPeople, setNumberOfPeople] = useState("");
+  props.state.numberOfPeople = numberOfPeople;
   props.state.bill = bill;
+  const setTipAmount = () => {
+    let value = (bill / 100) * props.state.tip;
+    let total = value * props.state.numberOfPeople;
+    props.setTipAmount(value.toFixed(2));
+    props.setTipTotal(total.toFixed(2));
+  };
   const billOnChange = (event) => {
     setBill(event.currentTarget.value);
+    setTipAmount();
     console.log(bill);
   };
-  const [numberOfPeople, setNumberOfPeople] = useState(0);
-  props.state.numberOfPeople = numberOfPeople;
+
   const numberOfPeopleOnChange = (event) => {
     setNumberOfPeople(event.currentTarget.value);
+    setTipAmount();
     console.log(numberOfPeople);
-    console.log(props);
   };
 
   return (
@@ -82,7 +90,7 @@ const Menu = (props) => {
           onChange={billOnChange}
         />
       </div>
-      <TipSelector state={props.state} />
+      <TipSelector state={props.state} setTipAmount={setTipAmount} />
       <div>
         <p>Number of People</p>
 

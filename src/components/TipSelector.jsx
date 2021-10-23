@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const TipSelectorWrapper = styled.div`
@@ -47,9 +47,8 @@ const TipSelector = (props) => {
   const [tip, setTip] = useState(0);
   props.state.tip = tip;
 
-  const customTipRef = useRef(0);
   const customTipOnChange = (event) => {
-    let tip = parseInt(event.currentTarget.value);
+    let tip = parseInt(event.target.value);
     setTip(tip);
   };
   const resetStyle = () => {
@@ -68,6 +67,8 @@ const TipSelector = (props) => {
     resetStyle();
     changeStyle(id);
     setTip(value);
+    props.setTipAmount();
+    console.log(props);
   };
   const changeTip = {
     changeTip5: function () {
@@ -111,7 +112,6 @@ const TipSelector = (props) => {
           type="text"
           placeholder="Custom"
           onChange={customTipOnChange}
-          ref={customTipRef}
           onFocus={resetStyle}
         />
       </div>
