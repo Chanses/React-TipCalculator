@@ -13,7 +13,6 @@ const AppWrapper = styled.div`
   font-family: "Space Mono";
 `;
 const AppH = styled.div`
-  width: 30px;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 80px;
@@ -26,7 +25,7 @@ class App extends Component {
     return (
       <AppWrapper>
         <AppH>
-          <div>SPLI TTER</div>
+          SPLI <br /> TTER
         </AppH>
 
         <Calculator />
