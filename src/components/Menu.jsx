@@ -61,9 +61,12 @@ const Menu = (props) => {
   const numberOfPeople = props.state.numberOfPeople;
   const setTipAmount = () => {
     let value = (bill / 100) * props.state.tip;
-    let total = value * numberOfPeople;
-    props.setTipAmount(parseInt(value.toFixed(2)));
-    props.setTipTotal(parseInt(total.toFixed(2)));
+    let total = (parseInt(bill) + parseInt(value)) / numberOfPeople;
+    if (total === Infinity || NaN) {
+      total = 0;
+    }
+    props.setTipAmount(value.toFixed(2));
+    props.setTipTotal(total.toFixed(2));
     console.log(value);
   };
 
