@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import TipSelector from "./TipSelector";
 import dollarImg from "../images/icon-dollar.svg";
@@ -57,26 +57,24 @@ const MenuInput = styled.input`
 `;
 
 const Menu = (props) => {
-  const [bill, setBill] = useState("");
-  const [numberOfPeople, setNumberOfPeople] = useState("");
-  props.state.numberOfPeople = numberOfPeople;
-  props.state.bill = bill;
+  const bill = props.state.bill;
+  const numberOfPeople = props.state.numberOfPeople;
   const setTipAmount = () => {
     let value = (bill / 100) * props.state.tip;
-    let total = value * props.state.numberOfPeople;
-    props.setTipAmount(value.toFixed(2));
-    props.setTipTotal(total.toFixed(2));
+    let total = value * numberOfPeople;
+    props.setTipAmount(parseInt(value.toFixed(2)));
+    props.setTipTotal(parseInt(total.toFixed(2)));
+    console.log(value);
   };
+
   const billOnChange = (event) => {
-    setBill(event.currentTarget.value);
+    props.setBill(event.currentTarget.value);
     setTipAmount();
-    console.log(bill);
   };
 
   const numberOfPeopleOnChange = (event) => {
-    setNumberOfPeople(event.currentTarget.value);
+    props.setNumberOfPeople(event.currentTarget.value);
     setTipAmount();
-    console.log(numberOfPeople);
   };
 
   return (
@@ -90,7 +88,11 @@ const Menu = (props) => {
           onChange={billOnChange}
         />
       </div>
-      <TipSelector state={props.state} setTipAmount={setTipAmount} />
+      <TipSelector
+        state={props.state}
+        setTipAmount={setTipAmount}
+        setTip={props.setTip}
+      />
       <div>
         <p>Number of People</p>
 

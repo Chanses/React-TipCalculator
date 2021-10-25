@@ -49,6 +49,25 @@ const ResetButton = styled.button`
 `;
 
 const Result = (props) => {
+  const resetStyle = () => {
+    let item = document.querySelectorAll("button");
+    item.forEach((element) => {
+      element.style.color = "";
+      element.style.backgroundColor = "";
+    });
+  };
+  const resetInputs = () => {
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach((e) => (e.value = ""));
+  };
+  const resetAll = () => {
+    props.resetvalue();
+
+    resetStyle();
+    resetInputs();
+    console.log(props.state);
+  };
+
   return (
     <ResultWrapper>
       <AmountWrapper>
@@ -57,17 +76,17 @@ const Result = (props) => {
             Tip Amount <br />
             <span>/ person </span>
           </p>
-          <div>{props.tipAmount}$</div>
+          <div>{props.state.tipAmount}$</div>
         </div>
         <div>
           <p>
             Total <br />
             <span>/ person </span>
           </p>
-          <div>{props.tipTotal}$</div>
+          <div>{props.state.tipTotal}$</div>
         </div>
       </AmountWrapper>
-      <ResetButton>RESET</ResetButton>
+      <ResetButton onClick={resetAll}>RESET</ResetButton>
     </ResultWrapper>
   );
 };

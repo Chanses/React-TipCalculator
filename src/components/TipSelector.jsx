@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const TipSelectorWrapper = styled.div`
@@ -44,12 +44,9 @@ const TipSelectorInput = styled.input`
 `;
 
 const TipSelector = (props) => {
-  const [tip, setTip] = useState(0);
-  props.state.tip = tip;
-
   const customTipOnChange = (event) => {
     let tip = parseInt(event.target.value);
-    setTip(tip);
+    props.setTip(tip);
   };
   const resetStyle = () => {
     let item = document.querySelectorAll("button");
@@ -66,7 +63,7 @@ const TipSelector = (props) => {
   const selectTip = (id, value) => {
     resetStyle();
     changeStyle(id);
-    setTip(value);
+    props.setTip(value);
     props.setTipAmount();
     console.log(props);
   };

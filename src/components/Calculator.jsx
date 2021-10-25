@@ -20,23 +20,44 @@ const CalculatorWrapper = styled.div`
 `;
 
 const Calculator = () => {
-  const state = {
-    bill: 0,
-    numberOfPeople: 0,
-    tip: 0,
-    tipAmount: 0,
+  const [tipAmount, setTipAmount] = useState(0.0);
+  const [tipTotal, setTipTotal] = useState(0.0);
+  const [bill, setBill] = useState("");
+  const [numberOfPeople, setNumberOfPeople] = useState("");
+  const [tip, setTip] = useState(0);
+
+  const resetvalue = () => {
+    setTipAmount(0);
+    setTipTotal(0);
+    setBill(0);
+    setNumberOfPeople(0);
+    setTip(0);
   };
-  const [tipAmount, setTipAmount] = useState(0);
-  const [tipTotal, setTipTotal] = useState(0);
+
+  const state = {
+    bill: bill,
+    tip: tip,
+    numberOfPeople: numberOfPeople,
+    tipAmount: tipAmount,
+    tipTotal: tipTotal,
+  };
 
   return (
     <CalculatorWrapper>
       <Menu
         state={state}
+        setBill={setBill}
+        setTip={setTip}
+        setNumberOfPeople={setNumberOfPeople}
         setTipAmount={setTipAmount}
         setTipTotal={setTipTotal}
       />
-      <Result state={state} tipAmount={tipAmount} tipTotal={tipTotal} />
+      <Result
+        state={state}
+        tipAmount={tipAmount}
+        tipTotal={tipTotal}
+        resetvalue={resetvalue}
+      />
     </CalculatorWrapper>
   );
 };
